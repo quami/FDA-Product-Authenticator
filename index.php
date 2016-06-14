@@ -1,5 +1,9 @@
 <?php
-if
+
+$msg ="";
+if (isset($_POST['submit'])) {
+	$msg = 'coming soon';
+}
 
 
 ?>
@@ -54,7 +58,7 @@ if
 					    <span class="icon mif-keyboard"></span>
 					</div>
 				  </div>
-				  <button type="submit" id="submit" class="btn btn-default">Submit</button>
+				  <button type="submit" id="submit" name="submit" class="btn btn-default">Submit</button>
 				</div>					
 			</div>
 		</div>
@@ -62,7 +66,7 @@ if
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 validator-center">
 				<div role="form">
-					<textarea id="result" name="result" class="form-control" rows="3" readonly></textarea>
+					<textarea id="result" name="result" class="form-control" rows="3" readonly><?php echo $msg; ?></textarea>
 				</div>
 			</div>
 		</div>	
