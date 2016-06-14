@@ -24,7 +24,7 @@ $(document).ready(function() {
 		//Make an ajax request
 		$.ajax({
 			type: 'POST',
-			url: 'http://192.168.43.108/pvs/php/authenticator.php',
+			url: 'http://172.20.10.14/pvs/php/authenticator.php',
 			data: {"product_name":product_name,"fda_id":fda_id},
 
 			success: function(res) {
