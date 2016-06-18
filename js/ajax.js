@@ -46,7 +46,11 @@ $(document).ready(function() {
 
 						$('#result').show();
 						$('#result').html('<p>The Product ' + item.product_name + ' with ID ' + item.fda_id + ' is genuine' +'</p>');
-						$('#result').append('<img src="' + (item.product_image_url).substring(3) + '">');
+
+						//decode url
+						//product_image_url = decodeURIComponent(item.product_image_url);
+						//console.log(product_image_url);
+						$('#result').append('<img src="http://localhost/pvs/' + (item.product_image_url).substring(3) + '">');
 					});	
 				}
 				
