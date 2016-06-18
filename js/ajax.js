@@ -50,7 +50,7 @@ $(document).ready(function() {
 						//decode url
 						//product_image_url = decodeURIComponent(item.product_image_url);
 						//console.log(product_image_url);
-						$('#result').append('<img src="http://localhost/pvs/' + (item.product_image_url).substring(3) + '">');
+						$('#result').append('<img src="http://b3f44fd6.ngrok.io/pvs/' + (item.product_image_url).substring(3) + '">');
 					});	
 				}
 				
