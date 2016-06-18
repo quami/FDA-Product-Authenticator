@@ -28,7 +28,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: 'POST',
 			cache:false,
-			url: 'http://http://f11331d7.ngrok.io/pvs/php/authenticator.php',
+			url: 'http://http://b3f44fd6.ngrok.io/pvs/php/authenticator.php',
 			data: {"product_name":product_name,"fda_id":fda_id},
 
 			success: function(res) {
