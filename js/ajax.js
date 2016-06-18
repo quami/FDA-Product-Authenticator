@@ -1,19 +1,22 @@
 $(document).ready(function() {
 	function submit() {
 
-		//var product_name-url = location.search.split('?user=')[1];
+		//var product_name-url = location.search.split('?fda-id=')[1];
 		var product_name = $('#product-name').val();
 		var fda_id = $('#fda-id').val();
 
 
 		//Validate input
 		if (product_name == '') {
-			$('#surnameerror').show();
+			$('.product-error').css('color','#DA0A2B');
+			$('.product-error').empty();
+			$('.product-error').show().append('Oops! You did not enter any product name');
 		}
 
 		else if (fda_id == '') {
-			$('#surnameerror').empty();
-			$('#nameerror').show();
+			$('.fda-error').css('color','#DA0A2B');
+			$('.fda-error').empty();
+			$('.fda-error').show().append('Oops! You did not enter any fda id');
 		}
 
 
@@ -24,7 +27,8 @@ $(document).ready(function() {
 		//Make an ajax request
 		$.ajax({
 			type: 'POST',
-			url: 'http://172.20.10.14/pvs/php/authenticator.php',
+			cache:false,
+			url: 'http://localhost/pvs/php/authenticator.php',
 			data: {"product_name":product_name,"fda_id":fda_id},
 
 			success: function(res) {
@@ -32,12 +36,20 @@ $(document).ready(function() {
 				console.log(res);
 				//alert(res);
 
-				$.each(res, function(index, item){
+				if ( res == false) {
+					$('#result').show;
+					$('#result').html('<p>The product ' + product_name + ' is counterfeit. Contact the nearest FDA office</p>');
+				}
 
-					var result = "The Product Name " + item.name + " with ID " + item.fda_id + " is genuine";
-					console.log(result);
-					$('#result').append(result);
-				});
+				else {
+					$.each(res, function(index, item){
+
+						$('#result').show();
+						$('#result').html('<p>The Product ' + item.product_name + ' with ID ' + item.fda_id + ' is genuine' +'</p>');
+						$('#result').append('<img src="' + (item.product_image_url).substring(3) + '">');
+					});	
+				}
+				
 				
 			},
 			error: function(err)
