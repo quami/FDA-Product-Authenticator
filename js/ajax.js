@@ -28,7 +28,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: 'POST',
 			cache:false,
-			url: 'http://b3f44fd6.ngrok.io/pvs/php/authenticator.php',
+			url: 'http://41ec6627.ngrok.io/pvs/php/authenticator.php',
 			data: {"product_name":product_name,"fda_id":fda_id},
 
 			success: function(res) {
@@ -50,7 +50,7 @@ $(document).ready(function() {
 						//decode url
 						//product_image_url = decodeURIComponent(item.product_image_url);
 						//console.log(product_image_url);
-						$('#result').append('<img src="http://b3f44fd6.ngrok.io/pvs/' + (item.product_image_url).substring(3) + '">');
+						$('#result').append('<img src="http://41ec6627.ngrok.io/pvs/' + (item.product_image_url).substring(3) + '">');
 					});	
 				}
 				
